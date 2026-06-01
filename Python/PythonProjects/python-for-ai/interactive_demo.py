@@ -75,6 +75,54 @@ numbers
 numbers.reverse()
 numbers
 
+list2=["Sneha",25,"Bangalore",22000, ["Kerala","Karnataka"]]
+len(list2)
+list2[0]
+list2[4]
+list2[4][0]
+list2[4][1]
+list2[-1]
+list2[-1][-1]
+list2[-1][-2]
+
+list3=[1,2,3,4]
+list4=list3 + [5,6]
+list4
+
+# Membership in lists
+list5=[1,2,3,4,5,6]
+print(1 in list5)
+print(8 in list5)
+
+# extend() function in list- it extends the list
+list6=[1,2,3,4,5]
+list6.extend([9,10])
+list6
+len(list6)
+# append() function
+list6.append([11,12])
+list6
+len(list6)
+
+# del command
+list7=[1,2,3,4]
+del list7[2]
+list7
+
+# pop() - removes the specified index element
+# default- removes the last element 
+# pop operation works on indexes
+list8=[1,2,3,4,5,6,7,8,9]
+list8.pop(-1)
+list8
+list8.pop()
+list8
+
+# remove()
+# remove operation works on values
+list8.remove(3)
+list8
+
 # Dictionaries
 # key-value pairs
 # keys cannot be duplicate, but values can have duplicate values
