@@ -123,6 +123,62 @@ list8
 list8.remove(3)
 list8
 
+# sort
+list9=[1,2,3,6,7,8,9]
+list9.sort()
+list9
+list9.sort(reverse=True)
+list9
+
+# Difference between sort and sorted
+A=['Carrot','Tomato','Potato','Pea']
+B=A.sort()
+print(A)
+print(B)
+# assignment doesnt work in sorted
+
+C=['Mango','Plum','Kiwi','Apple']
+D=sorted(C)
+print(C)
+print(D)
+# assignment operation works for sorted 
+# use sorted method to store the sorted list into another list (creates another object)
+
+
+# Shallow copy
+P=['Pen','Pencil','Eraser','Scale']
+Q=P
+print(P)
+print(Q)
+P.pop()
+print(P)
+print(Q)
+
+M=['Book','Table','Chair','Box']
+N=M[1:4]
+print(M)
+print(N)
+M.pop()
+print(M)
+print(N)
+# changes made to M not affetced to M
+# new reference object created in the memory.
+
+# Question?
+customer='Kumar_Ravi_003'
+first_name=customer[6:10]
+second_name=customer[0:5]
+customer_code=customer[11:]
+customer_code=customer[-3:]
+#OR
+res=customer.split('_')
+res
+print('second_name: ' ,res[0])
+print('first_name: ' ,res[1])
+print('customer_code: ' ,res[2])
+
+
+
 # Dictionaries
 # key-value pairs
 # keys cannot be duplicate, but values can have duplicate values
@@ -162,6 +218,65 @@ colors=("red","green","blue","red")
 colors
 colors[0]
 
+nums=1,2,3,4
+type(nums)
+
+nested_tuple=(1,2,3,4,(5,6))
+len(nested_tuple)
+
+mixed_tuple=(1,2,3,4,[5,6,7])
+len(mixed_tuple)
+type(mixed_tuple[4])
+type(mixed_tuple[0])
+print(mixed_tuple[1])
+print(mixed_tuple[4][1])
+print(len(mixed_tuple[4]))
+
+t1=1.2,
+type(t1)
+t2=3.4 # not a tuple
+type(t2)
+t3=(2,)
+type(t3)
+t4=(2) # not a tuple
+type(t4)
+
+# concatenation
+tuple1=('Hello','nice','to')
+tuple2=('meet','you!')
+tuple3=tuple1+tuple2
+print(tuple3)
+
+# min , max and sum functions
+odd=(1,3,5,7)
+sum(odd)
+
+even=(2,8,4,6)
+max(even)
+min(even)
+sum(even)
+
+t=(1,2.5,4.8,5,6.1)
+max(t)
+sum(t)
+min(t)
+
+s=('hello',4,6,7,'hi')
+# max(s) # not possible ERROR
+
+greet=('Hello','welcome',5,6,'land','of','coconuts')
+greet[0:2]
+join=('to','the')
+greet[4:7]
+res_tuple=greet[0:2]+join+greet[4:7]
+res_tuple
+
+# sorting a tuple
+v=(1,4,5,3,7,9,5,6)
+w=sorted(v)
+print(v)
+print(w)
+type(w)
 
 #Set
 # no duplicates
