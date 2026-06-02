@@ -177,6 +177,13 @@ print('second_name: ' ,res[0])
 print('first_name: ' ,res[1])
 print('customer_code: ' ,res[2])
 
+# Question?
+a=[5,1,3,4,4,5,6,7]
+b=[3,3,5,5,1,7,2]
+# common in both and return in sorted order
+res=set(a) & set(b)
+print(sorted(res))
+
 
 
 # Dictionaries
@@ -204,6 +211,7 @@ person_info
 print(person_info.keys())
 print(person_info.values())
 print(person_info.items())
+print(person_info.get("city"))
 
 if "name" in person_info:
     print("Name found!")
@@ -284,14 +292,14 @@ type(w)
 # no indexing
 #Empty set
 empty_set=set()
-# not {}-  thatsa dictionary
+# not {}-  thats a dictionary
 real={1,2,3,4,5}
 fruits=set(["Apple","Banana","Orange"])
 # From a list, remove duplicates
 marks=[20,56,45,70,45]
 unique_marks=set(marks)
 
-# operations
+# set operations
 fruits.add("kiwi")
 fruits
 fruits.remove("Orange") # error if not found
@@ -300,17 +308,84 @@ fruits.discard("banana") # no error if not found
 fruits
 # fruits.remove("lichi") # gives error
 
+A={0,2,4,6,8}
+B={1,2,3,4,5}
+# Union operation
+print(A|B)
+print(A.union(B))
+print(len(A.union(B)))
+# Intersection
+print(A&B)
+print(A.intersection(B))
+# Difference
+print(A-B)
+# Symmetric Difference
+print(A^B)
 
 
+# Loops and Iterations
+# Check whether a number is even or odd
+x=int(input('Enter a number: '))
+if x % 2 ==0:
+    print(x , " is even")
+else:
+    print(x," is an odd number")    
 
+#Iterations
+# Iterate over a list of integers
+list_1=[10,20,30,40]
+for i in list_1:
+    print(i)
 
+# Iterate over string
+str1="Hello darling"
+for i in str1:
+    print(i)
 
+# Iterate over a dictionary
+dict_1={1:["Sam",25,"Kolkata"], 2:["Raghu",34,"Mumbai"],3:["Alice",15,"Sydney"],4:["Bob",56,"Chicago"]}
+for i in dict_1.items():
+    print(i)
+for i,j in dict_1.items():
+    print(j)    
 
+for i in dict_1.keys():
+    print(i)
+for i,j in dict_1.items():
+    print(i)
+for i in dict_1:
+    print(i)
 
+# Iterate over a range of values
+for i in range(1,6):
+    print(i)
 
+# Comprehensions
 
+list1=["Benz","BMW","Ferrari","Audi","McLaren","Porsche"]
+list2=[]
+for i in list1:
+    list2.append(i)
+print(list2)
+# OR
+list5=[i for i in list1]
+print(list5)
 
+list3=["Benz","BMW","Ferrari","Audi","McLaren","Porsche"]
+list4=[]
+for i in list3:
+    list4.append(len(i))
+print(list4)    
+# OR
+list6=[len(i) for i in list3]
+print(list6)
 
-
-
-
+# Defining a dictionary
+list7=["Maruthi","Honda","Tata","Kia"]
+d={i: len(i) for i in list7}
+print(d)
+# OR
+d1={}
+for i in list7:
+    d1[i]=len(i)
+print(d1)    
