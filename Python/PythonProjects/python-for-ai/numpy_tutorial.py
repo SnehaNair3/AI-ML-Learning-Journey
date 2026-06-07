@@ -157,6 +157,8 @@ q.mean()
 np.mean(q)
 q.sum()
 np.sum(q)
+np.sum(q,axis=0)
+np.sum(q,axis=1)
 
 
 
