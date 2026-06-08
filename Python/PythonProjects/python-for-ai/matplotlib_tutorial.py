@@ -68,3 +68,49 @@ plt.show()
 plt.bar(churn_df['Geography'],churn_df['EstimatedSalary'].max(), color="cyan",edgecolor="orange")
 plt.title('Geography vs Estimated Salary',fontdict={"fontsize":20, "color":"Green"})
 plt.show()
+
+plt.bar(churn_df['Gender'],churn_df['Age'].max(),color="cyan",edgecolor="orange")
+plt.title('Gender vs Age',fontdict={"fontsize":20,"color":"Green"})
+plt.show()
+
+# Scatter Plot
+plt.scatter(churn_df['Age'],churn_df['Tenure'])
+plt.title('Scatter Plot')
+plt.xlabel('This is X axis')
+plt.ylabel('This is Y axis')
+plt.show()
+
+# Histogram
+plt.hist(churn_df['Tenure'],bins=30)
+plt.ylabel('Probability')
+plt.xlabel('Tenure')
+plt.show()
+
+# Pie Chart
+labels_ex='Javascript','Java','Python','R'
+sizes=[15,30,45,10]
+explode_labels1=(0,0.5,0,0)
+fig1,ax1=plt.subplots()
+ax1.pie(sizes,explode=explode_labels1,labels=labels_ex,shadow=True,startangle=90)
+ax1.axis('equal')
+plt.show()
+
+labels_ex='Javascript','Java','Python','R'
+sizes=[15,30,45,10]
+explode_labels2=(0,0,0,0)
+fig1,ax1=plt.subplots()
+ax1.pie(sizes,explode=explode_labels2,labels=labels_ex,shadow=True,startangle=90)
+ax1.axis('equal')
+plt.show()
+
+labels_ex='Javascript','Java','Python','R'
+sizes=[15,30,45,10]
+explode_labels3=(0,0,0.8,0)
+fig1,ax1=plt.subplots()
+ax1.pie(sizes,explode=explode_labels3,labels=labels_ex,shadow=True,startangle=90)
+ax1.axis('equal')
+plt.show()
+
+# Box Plot
+churn_df['Tenure'].plot.box()
+
