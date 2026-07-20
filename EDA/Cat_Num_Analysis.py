@@ -26,4 +26,22 @@ for i, predictor in enumerate(telco_new.drop(columns=['Exited'])):
 
 
 # Bivariate Analysis
+sns.histplot(x='Gender',hue='Geography',data=telco_new,stat="count",multiple="dodge")
+
+telco_new_target1=telco_new.loc[telco_new["Exited"]==1]
+
+sns.histplot(x='Gender',hue='Geography',data=telco_new_target1,stat="count",multiple="dodge")
+
+
+
+# numerical Analysis
+# Correlation : It ranges from -1 to +1.
+# +1 -> Positive correlation
+# -1 -> Negative correlation
+# 0  -> No correlation
+
+
+telco_base_data.dtypes
+
+telco_base_data.corr()
 
