@@ -26,3 +26,15 @@ salary INT
 )
 
 SELECT * FROM new_emp;
+
+# ALTER
+ALTER TABLE new_emp 
+ADD gender varchar(10);
+
+ALTER TABLE new_emp 
+ADD random char;
+
+ALTER TABLE new_emp
+DROP COLUMN random;
+
+
