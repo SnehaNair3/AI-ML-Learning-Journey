@@ -1,0 +1,1 @@
+SELECT * FROM breast_cancer_db.breastcancer;
