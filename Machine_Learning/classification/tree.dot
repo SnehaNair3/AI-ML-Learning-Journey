@@ -1,0 +1,17 @@
+digraph Tree {
+node [shape=box, style="filled", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<tenure &le; -0.656<br/>gini = 0.392<br/>samples = 100.0%<br/>value = [0.732, 0.268]<br/>class = y<SUB>0</SUB>>, fillcolor="#efaf81"] ;
+1 [label=<InternetService_Fiber optic &le; 0.119<br/>gini = 0.497<br/>samples = 35.9%<br/>value = [0.537, 0.463]<br/>class = y<SUB>0</SUB>>, fillcolor="#fbeee4"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<gini = 0.423<br/>samples = 20.3%<br/>value = [0.696, 0.304]<br/>class = y<SUB>0</SUB>>, fillcolor="#f0b890"] ;
+1 -> 2 ;
+3 [label=<gini = 0.443<br/>samples = 15.6%<br/>value = [0.331, 0.669]<br/>class = y<SUB>1</SUB>>, fillcolor="#9bcdf2"] ;
+1 -> 3 ;
+4 [label=<InternetService_Fiber optic &le; 0.119<br/>gini = 0.267<br/>samples = 64.1%<br/>value = [0.842, 0.158]<br/>class = y<SUB>0</SUB>>, fillcolor="#ea995e"] ;
+0 -> 4 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+5 [label=<gini = 0.112<br/>samples = 35.6%<br/>value = [0.94, 0.06]<br/>class = y<SUB>0</SUB>>, fillcolor="#e78946"] ;
+4 -> 5 ;
+6 [label=<gini = 0.405<br/>samples = 28.5%<br/>value = [0.718, 0.282]<br/>class = y<SUB>0</SUB>>, fillcolor="#efb287"] ;
+4 -> 6 ;
+}
