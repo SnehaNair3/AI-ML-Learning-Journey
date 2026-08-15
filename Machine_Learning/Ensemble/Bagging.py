@@ -34,9 +34,59 @@ print('Accuracy DT : ', round(accuracy_score(y_test,y_pred_dt)*100,2),'%')
 
 # Bagging
 
-bag=BaggingClassifier(base_estimator=DecisionTreeClassifier(),
+bag=BaggingClassifier(estimator=DecisionTreeClassifier(),
                       n_estimators=500,
                       max_samples=0.5,
                       bootstrap=True,
                       random_state=42)
 
+
+bag.fit(X_train,y_train)
+y_pred_bag=bag.predict(X_test)
+
+print('Accuray Bagging : ', round(accuracy_score(y_test,y_pred_bag)*100,2), ' %')
+
+
+# Random Forest
+from sklearn.ensemble import RandomForestClassifier
+
+model_rf=RandomForestClassifier(random_state=42,n_estimators=500)
+model_rf.fit(X_train,y_train)
+y_pred_rf=model_rf.predict(X_test)
+
+print('Accuracy RF : ', round(accuracy_score(y_test,y_pred_rf)*100,2),' %')
+
+
+# Bagging using SVM
+bag_svm=BaggingClassifier(estimator=SVC(),
+                      n_estimators=500,
+                      max_samples=0.25,
+                      bootstrap=True,
+                      random_state=42)
+
+
+bag_svm.fit(X_train,y_train)
+y_pred_svm=bag_svm.predict(X_test)
+
+print('Accuray Bagging SVM : ', round(accuracy_score(y_test,y_pred_svm)*100,2), ' %')
+
+
+# Pasting
+pasting=BaggingClassifier(estimator=DecisionTreeClassifier(),
+                      n_estimators=500,
+                      max_samples=0.25,
+                      bootstrap=False,
+                      random_state=42)
+
+
+pasting.fit(X_train,y_train)
+y_pred_pasting=pasting.predict(X_test)
+
+print('Accuray pasting : ', round(accuracy_score(y_test,y_pred_pasting)*100,2), ' %') 
+
+
+# Takeways : 
+# 1 - Randon Forest is better than Bagges models
+# Further Bagged models are better than Pasting
+# 2 - Good results come around 25% to 50% row sampling
+# 3 - To find the best parameters , we need to do hyper parameter optimization
