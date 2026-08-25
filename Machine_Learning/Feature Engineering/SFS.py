@@ -50,15 +50,15 @@ print(y)
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.30,random_state=42)
 
 
-# Apply the Recursive Feature Elimination (RFE) to select 5 best features 
+# Apply the Successive Feature Selection (SFS) to select 5 best features 
 model=LogisticRegression()
-rfe=RFE(model,n_features_to_select=5)
+sfs=SequentialFeatureSelector(model,n_features_to_select=5)
 
-rfe=rfe.fit(X_train,y_train)
+sfs=sfs.fit(X_train,y_train)
 
 
 # Get the selected features
-selected_features=X_train.columns[rfe.support_]
+selected_features=X_train.columns[sfs.support_]
 X_train_selected=X_train[selected_features]
 X_test_selected=X_test[selected_features]
 
@@ -72,36 +72,41 @@ accuracy_orig=accuracy_score(y_test,y_pred_orig)
 print('Accuracy of the base model is  : ',round(accuracy_orig*100,2))
 
 
-# Build the RFE based model on 5 predictors
-model_rfe=LogisticRegression()
-model_rfe.fit(X_train_selected,y_train)
-y_pred_rfe=model_rfe.predict(X_test_selected)
+# Build the SFS based model on 5 predictors
+model_sfs=LogisticRegression()
+model_sfs.fit(X_train_selected,y_train)
+y_pred_sfs=model_sfs.predict(X_test_selected)
 
-accuracy_rfe=accuracy_score(y_test,y_pred_rfe)
-print('Accuracy of RFE based model is : ',round(accuracy_rfe*100,2))
+accuracy_sfs=accuracy_score(y_test,y_pred_sfs)
+print('Accuracy of SFS based model is : ',round(accuracy_sfs*100,2))
+
+print(len(sfs.feature_names_in_))
 
 
-# 20 features
-# Apply the Recursive Feature Elimination (RFE) to select 5 best features 
+
+# Using mlxtend
+
+from mlxtend.feature_selection import SequentialFeatureSelector
+
+
 model2=LogisticRegression()
-rfe=RFE(model2,n_features_to_select=20)
+sfs2=SequentialFeatureSelector(model2,k_features=5,forward=True,floating=False,scoring='accuracy',cv=0)
 
-rfe=rfe.fit(X_train,y_train)
+
+sfs2=sfs2.fit(X_train,y_train)
 
 
 # Get the selected features
-selected_features=X_train.columns[rfe.support_]
+selected_features=list(sfs2.k_feature_names_)
 X_train_selected=X_train[selected_features]
 X_test_selected=X_test[selected_features]
 
 
-# Build the RFE based model on 5 predictors
-model_rfe2=LogisticRegression()
-model_rfe2.fit(X_train_selected,y_train)
-y_pred_rfe=model_rfe2.predict(X_test_selected)
 
-accuracy_rfe=accuracy_score(y_test,y_pred_rfe)
-print('Accuracy of RFE based model is : ',round(accuracy_rfe*100,2))
+model_sfs2=LogisticRegression()
+model_sfs2.fit(X_train_selected,y_train)
+y_pred_sfs2=model_sfs2.predict(X_test_selected)
 
-
+accuracy_sfs2=accuracy_score(y_test,y_pred_sfs2)
+print('Accuracy of SFS based model is : ',round(accuracy_sfs2*100,2))
 
