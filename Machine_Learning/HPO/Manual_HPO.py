@@ -162,3 +162,37 @@ random_accuracy=evaluate(best_random,X_test_sc,y_test)
 
 print('Improvement of {:0.2f}%'.format(100*(random_accuracy-base_accuracy)/base_accuracy))
 
+
+
+# Grid Search CV
+from sklearn.model_selection import GridSearchCV
+
+# Create the parametr of grid based on the results of random search
+param_grid= {
+    'bootstrap': [True,False],
+    'max_depth': [75,80,85,90,95,100],
+    'max_features': [2,3,4,5],
+    'min_samples_split': [8,10,12],
+    'min_samples_leaf': [1,2,3],
+    'n_estimators': [200,250,300,360,400,450,500]
+}
+
+
+# Create a base model
+rf_gd=RandomForestClassifier()
+
+# Initiate the grid serach model
+grid_search=GridSearchCV(estimator=rf_gd,param_grid=param_grid,cv=3,n_jobs=-1)
+
+# Fit the grid search to the data
+grid_search.fit(X_train_sc,y_train)
+grid_search.best_params_
+
+
+best_grid=grid_search.best_estimator_
+grid_accuracy=evaluate(best_grid,X_test_sc,y_test)
+
+
+print('Improvement of {:0.2f}%'.format(100*(grid_accuracy-base_accuracy)/base_accuracy))
+
+print(best_grid)
