@@ -91,3 +91,74 @@ for i in leaf_size:
     print('\n Estimator value : ',estim_list)
     print('Accuracy is : ',result)
 
+
+
+# Random Search CV
+
+from sklearn.model_selection import RandomizedSearchCV
+
+n_estimators=[int(x) for x in np.linspace(start=100, stop=1000, num=10)]
+n_estimators
+
+max_depth=[int(x) for x in np.linspace(start=10, stop=110, num=11)]
+
+min_samples_split=[2,3,4,5,8,10,20,50,100,200]
+
+bootstrap=[True, False]
+
+min_samples_leaf=[1,2,4,10,20,50,100]
+
+
+print(n_estimators)
+print(max_depth)
+print(min_samples_split)
+print(min_samples_leaf)
+
+
+
+# Create the random grid
+random_grid= {'n_estimators': n_estimators,
+              'max_depth': max_depth,
+              'min_samples_split': min_samples_split,
+              'bootstrap': bootstrap,
+              'min_samples_leaf': min_samples_leaf
+}
+
+# On each iteartion , the algorithm ill choose a different combination of the features.
+# Altogether, there are 15,400 combinations.
+# However, the benefit of RandomSearch is that we are not trying every combination, but selecting at random to sample  a wide range of values.
+
+
+# Use the random grid to search for best hyper parameters
+# First create the base model to tune
+
+rf=RandomForestClassifier()
+
+# Random search of parameters using 3 fold cross validations
+rf_random=RandomizedSearchCV(estimator=rf,param_distributions=random_grid,n_iter=100,cv=3,n_jobs=-1)
+
+# Fit the random search model
+rf_random.fit(X_train_sc,y_train)
+
+
+
+def  evaluate(model,test_features,test_labels):
+    predictions=model.predict(test_features)
+    accuracy=accuracy_score(test_labels,predictions)
+    print('Model performance')
+    print('Accuracy = {:0.2f}%'.format(accuracy))
+    return accuracy
+
+
+base_model=RandomForestClassifier(n_estimators=5,random_state=42)
+base_model.fit(X_train_sc,y_train)
+base_accuracy=evaluate(base_model,X_test_sc,y_test)
+
+
+best_random=rf_random.best_estimator_
+print(best_random)
+
+random_accuracy=evaluate(best_random,X_test_sc,y_test)
+
+print('Improvement of {:0.2f}%'.format(100*(random_accuracy-base_accuracy)/base_accuracy))
+
