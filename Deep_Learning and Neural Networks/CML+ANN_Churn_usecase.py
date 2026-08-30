@@ -152,9 +152,122 @@ print(score3*100)
 
 
 
+# K-Fold Cross Validation
+# Importing few libraries for k-folds
+from scikeras.wrappers import KerasClassifier
+from sklearn.model_selection import cross_val_score
+from keras.models import Sequential
+from keras.layers import Dense
+
+
+def build_classifier():
+    classifier=Sequential()
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu',input_dim=10))
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu'))
+    classifier.add(Dense(units=1, kernel_initializer='uniform',activation='sigmoid'))
+    classifier.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+    return classifier
+
+
+classifier=KerasClassifier(build_fn=build_classifier, batch_size=10,epochs=10)
+
+accuracies=cross_val_score(estimator=classifier,X=X_train,y=y_train,cv=10,n_jobs=-1)
+mean1=accuracies.mean()
+variance=accuracies.std()
+
+
+# Improvising the ANN - Hyperparanetr optimization
+
+from scikeras.wrappers import KerasClassifier
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+from keras.models import Sequential
+from keras.layers import Dense
+
+
+def build_classifier():
+    classifier=Sequential()
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu',input_dim=10))
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu'))
+    classifier.add(Dense(units=1, kernel_initializer='uniform',activation='sigmoid'))
+    classifier.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+    return classifier
+
+
+classifier=KerasClassifier(build_fn=build_classifier)
+
+parameters={'batch_size':[10,20],
+            'epochs':[5,6]}
+
+      # Total Combinations = 4 
+
+grid_search=GridSearchCV(estimator=classifier,param_grid=parameters,scoring='accuracy',n_jobs=-1,cv=5)
+grid_search=grid_search.fit(X_train,y_train)
+grid_search.best_params_
+grid_search.best_score_
+
+
+
+# Improvising the ANN - Hyperparanetr optimization --> adding more hyperparameters
+
+from scikeras.wrappers import KerasClassifier
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+from keras.models import Sequential
+from keras.layers import Dense
+
+
+def build_classifier():
+    classifier=Sequential()
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu',input_dim=10))
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu'))
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu'))
+    classifier.add(Dense(units=6, kernel_initializer='uniform',activation='relu'))
+    classifier.add(Dense(units=1, kernel_initializer='uniform',activation='sigmoid'))
+    classifier.compile(optimizer=optimizer,loss=loss, metrics=['accuracy'])
+    return classifier
+
+
+classifier=KerasClassifier(build_fn=build_classifier)
+
+parameters={'batch_size':[10,20,30,50],
+            'epochs':[10,50,100,200],
+            'loss' : ['binary_crossentropy','categorical_crossentropy'],
+            'optimizer' : ['adam','rmsprop']}
+
+      # Total Combinations = 4*4*2*2
+
+grid_search=GridSearchCV(estimator=classifier,param_grid=parameters,scoring='accuracy',n_jobs=-1,cv=5)
+grid_search=grid_search.fit(X_train,y_train)
+grid_search.best_params_
+grid_search.best_score_
+
+
+
+
+# Improvising the performance of ANN
+# 1 - INcrease the number of hidden layers
+# 2 - Increase the number of epochs
+# 3 - Fine-tuning the parameters - optimizers, batch_size,epochs
+# 4 - Dropout regularization : Dropout(0.25)
+# Dropout is implemented after each and every hidden layer
+# It basically means you are dropping out some of the features
+# 0.25 --> means you're dropping out 25% of the features
+
+
+# Overfitting problem : training accuracy increases, test accuracy is low
 
 
 
 
 
 
+
+
+
+
+import tensorflow as tf
+import keras
+
+print(tf.__version__)
+print(keras.__version__)
