@@ -167,3 +167,25 @@ generate_groups('Team-1','Alice','Bob','Maria','Diya','Anne')
 
 
 # Dictionary unpacking
+def greet(name,location):
+    print("Hi there, ",name," how is the weather in ",location," ?")
+
+# Call the function using keyword arguments
+greet(name="Alice",location="New York")  
+
+# Create a dictionary with keys matching the function's parameter names
+my_dict= {"name": "Alice", "location": "New York"}
+
+# Call the function using dictionary unpacking
+greet(**my_dict)
+
+# The ** operator unpacks the dictionary, passing its key-value pairs 
+# as keyword arguments to the function.
+
+
+# Function as a Parameter of Another Function
+def square_num(x):
+    return x*x
+def do_something(f,x):
+    return f(x)
+print(do_something(square_num,12))
