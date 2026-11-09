@@ -161,3 +161,44 @@ print(sum_of_even(15))
 
 
 # Exercises: Level 2
+# Declare a function named evens_and_odds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
+def evens_and_odds(num):
+    evens=0
+    odds=0
+    for i in range(num+1):
+        if i % 2 ==0:
+            evens+=1
+        else:
+            odds+=1  
+    print(f"The number of odds are {odds}")        
+    print(f"The number of evens are {evens}") 
+evens_and_odds(100)
+evens_and_odds(10)
+evens_and_odds(20)
+
+
+# Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
+def factorial(num):
+    fact=1
+    for i in range(1,num+1):
+        fact=fact*i
+    return fact
+print(factorial(4))    
+print(factorial(3))    
+print(factorial(5))    
+print(factorial(6))   
+
+
+# Call your function is_empty, it takes a parameter and it checks if it is empty or not
+def is_empty(value):
+    if len(value) ==0:
+        return True
+    else:
+        return False
+print(is_empty([1,2,4]))
+print(is_empty(['apple','banana']))
+print(is_empty([]))
+
+
+
+# Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation).
