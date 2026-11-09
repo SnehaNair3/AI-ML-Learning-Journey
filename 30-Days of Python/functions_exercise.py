@@ -96,3 +96,68 @@ def reverse_list2(my_list):
         i-=1
     return reversed_list2    
 print(reverse_list2([9,8,7,6,5]))
+
+
+
+# Declare a function named capitalize_list_items. It takes a list as a parameter and it returns a capitalized list of items
+def capitalize_list_items(list1):
+    capital_list=[]
+    for i in range(0,len(list1)):
+        capital_list.append(list1[i].upper())
+    return capital_list
+print(capitalize_list_items(['Apple','mango','banana','orange','kiwi']))        
+print(capitalize_list_items(['sneha','neha','malu','vigu','Alice']))        
+
+
+
+
+# Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
+def add_item(my_list,item):
+    my_list.append(item)
+    return my_list
+print(add_item(['Potato', 'Tomato', 'Mango', 'Milk'],'Meat'))   
+print(add_item([2, 3, 7, 9],5))   
+
+
+
+# Declare a function named remove_item. It takes a list and an item parameters. It returns a list with the item removed from it.
+def remove_item(my_list,item):
+    my_list.remove(item)
+    return my_list
+print(remove_item(['Potato', 'Tomato', 'Mango', 'Milk'],'Mango'))
+numbers = [2, 3, 7, 9]
+print(remove_item(numbers,3))
+
+
+# Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
+def sum_of_numbers(num):
+    return num*(num+1)/2
+print(sum_of_numbers(5))
+print(sum_of_numbers(10))
+print(sum_of_numbers(100))
+
+
+# Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
+def sum_of_odds(num):
+    sum_odds=0
+    for i in range(1,num+1,2):
+        sum_odds+=i
+    return sum_odds    
+print(sum_of_odds(5))
+print(sum_of_odds(10))
+print(sum_of_odds(15))
+
+
+
+# Declare a function named sum_of_even. It takes a number parameter and it adds all the even numbers in that - range.
+def sum_of_even(num):
+    sum_even=0
+    for i in range(0,num+1,2):
+        sum_even+=i
+    return sum_even
+print(sum_of_even(5))    
+print(sum_of_even(10))    
+print(sum_of_even(15))    
+
+
+# Exercises: Level 2
