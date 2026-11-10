@@ -202,3 +202,185 @@ print(is_empty([]))
 
 
 # Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation).
+def calculate_mean(my_list):
+    n=len(my_list)
+    sum=0
+    for i in range(len(my_list)):
+        sum+=my_list[i]
+    mean=sum/n
+    return mean
+nums=[1,2,3,4,5]    
+print(calculate_mean(nums))        
+print(calculate_mean([5,6,7,8,9]))   
+
+
+
+def calculate_median(my_list):
+    my_list.sort()
+    n=len(my_list)
+    median=0
+
+    if n % 2 ==0:
+        median=(my_list[n//2-1] + my_list[n//2])/2
+    else:
+        median=my_list[n//2]  
+    return median
+numbers_odd= [10, 30, 20, 50, 40]
+print('Odd numbers median : ',calculate_median(numbers_odd))    
+numbers_even = [10, 20, 30, 40]
+print('Even numbers median : ',calculate_median(numbers_even))    
+
+
+def calculate_mode(my_list):
+    max_count=0
+    mode=None
+
+    for i in my_list:
+        count=my_list.count(i)
+
+        if count > max_count:
+            max_count=count
+            mode=i
+    return mode
+numbers=[10, 20, 20, 30, 40, 20, 50]
+print('Mode : ', calculate_mode(numbers))
+
+# Range = Maximum value − Minimum value
+def calculate_range(my_list):
+    my_list.sort()
+    return my_list[-1] - my_list[0]
+numbers = [10, 20, 30, 40, 50]
+print('Range : ', calculate_range(numbers))
+numbers2 = [40, 20, 30, 90, 50, 100, 20, 30]
+print('Range : ', calculate_range(numbers2))
+
+
+# Variance measures how far the numbers in a dataset are spread out from their mean (average).
+# A higher variance means the values are more spread out, while a lower variance means they are closer to the mean.
+def calculate_variance(my_list):
+    # calculate Mean
+    mean=sum(my_list)/len(my_list)
+
+    # Calculate squared differences
+    squared_diff=[]
+
+    for i in my_list:
+        squared_diff.append((i-mean)**2)
+
+    # Calculate variance
+    variance=sum(squared_diff)/len(my_list)    
+
+    return variance
+numbers = [10, 20, 30, 40, 50]
+print('Variance: ', calculate_variance(numbers))
+
+import math
+def calculate_std(my_list):
+    var=calculate_variance(my_list)
+    sd=math.sqrt(var)
+    return sd
+numbers = [10, 20, 30, 40, 50]
+print('SD is : ', calculate_std(numbers))
+
+
+
+# Write a function called greet which takes a default argument, name. If no argument is supplied it should print "Hello, Guest!", otherwise it should greet the person by name.
+def greet(name='Guest'):
+    print(f"Hello, {name}!")
+greet("Sneha")  
+greet()   
+
+
+# Create a function called show_args to take an arbitrary number of named arguments and print their names and values
+# show_args(name="Alice", age=30, city="New York")
+# Received: name: Alice, age: 30, city: New York
+# show_args(name="Bob", pet="Fluffy, the bunny")
+# Received: name: Bob, pet: Fluffy, the bunny
+def show_args(**args):
+    for k,v in args.items():
+        print( k , ": ",v)
+show_args(name="Alice", age=30, city="New York")      
+show_args(name="Bob", pet="Fluffy, the bunny")
+
+
+
+# Exercises: Level 3
+
+# Write a function called is_prime, which checks if a number is prime.
+def is_prime(num):
+    if num <=1:
+        return False
+    for i in range(2,num):
+        if num % i ==0:
+            return False
+    return True
+    
+print(is_prime(2))    
+print(is_prime(20))    
+print(is_prime(13))    
+print(is_prime(9))    
+print(is_prime(29))    
+print(is_prime(33))    
+print(is_prime(27))    
+
+
+# Write a functions which checks if all items are unique in the list.
+def all_unique(my_list):
+    for i in my_list:
+        if my_list.count(i) > 1:
+            return False
+    return True
+print(all_unique([1,2,3,4,5]))    
+print(all_unique([1,2,1,5,7,9,7]))    
+print(all_unique(['apple','banana','kiwi']))    
+print(all_unique(['apple','banana','kiwi','apple','kiwi']))    
+
+
+# Write a function which checks if all the items of the list are of the same data type.
+def same_type(my_list):
+    for i in my_list:
+        if type(i) != type(my_list[0]):
+            return False
+    return True
+print(same_type([1, 2, 3, 4]))    
+print(same_type([1, 2, '3', 4]))    
+print(same_type(['apple', 'mango']))    
+print(same_type(['apple', 'mango', 2 , True]))    
+
+
+# Write a function which check if provided variable is a valid python variable
+import keyword
+
+def is_valid_variable(variable):
+    return variable.isidentifier() and not keyword.iskeyword(variable)
+print(is_valid_variable("my_name"))  # True
+print(is_valid_variable("123name"))  # False
+print(is_valid_variable("my-name"))  # False
+print(is_valid_variable("for"))      # False
+# isidentifier() checks whether the string follows Python variable naming rules.
+# keyword.iskeyword() checks whether the name is a reserved Python keyword.
+
+import keyword
+
+def is_variable_valid(variable):
+    if not variable:
+        return False
+
+    if not (variable[0].isalpha() or variable[0] == '_'):
+        return False
+
+    for i in variable:
+        if not (i.isalnum() or i == '_'):
+            return False
+
+    if keyword.iskeyword(variable):
+        return False
+
+    return True
+
+print(is_variable_valid("my_name"))
+print(is_variable_valid("123name"))
+print(is_variable_valid("my-name"))
+print(is_variable_valid("for"))
+print(is_variable_valid("my@name"))
+        
