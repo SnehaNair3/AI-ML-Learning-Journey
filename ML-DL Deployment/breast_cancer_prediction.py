@@ -25,7 +25,7 @@ len(X_test)
 
 
 # Model Building
-model=RandomForestClassifier(n_estimators=00,n_jobs=-1)
+model=RandomForestClassifier(n_estimators=100,n_jobs=-1)
 model.fit(X_train,y_train)
 
 
