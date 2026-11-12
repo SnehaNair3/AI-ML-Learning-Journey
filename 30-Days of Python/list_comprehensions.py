@@ -51,3 +51,37 @@ print(flattened_list)
 
 
 # Lambda Function
+# Lambda function is  a small anonymous function without a name.
+x = lambda param1, param2, param3: param1 + param2+param3
+# print(x(arg1,arg2,arg3))
+
+# Named function 
+def add_two_nums(a,b):
+    return a+b
+print(add_two_nums(2,3))
+
+add_two_nums2=lambda a,b:a+b
+print(add_two_nums2(1,5))
+
+# Self invoking lambda function 
+print((lambda a,b: a+b)(1,3))
+
+square=lambda x:x**2
+print(square(4))
+
+cube=lambda x: x**3
+print(cube(4))
+
+# Multiple variables 
+multiple_variable=lambda a,b,c:a**2-3*b+4*c
+print(multiple_variable(5,5,3))
+
+
+# Lambda Function Inside Another Function
+def power(x):
+    return lambda n:x**n
+
+cube=power(2)(3)
+print(cube)
+two_power_of_five =power(2)(5)
+print(two_power_of_five)
