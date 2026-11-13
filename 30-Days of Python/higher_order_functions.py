@@ -162,3 +162,38 @@ print(list(names_upper_cased))
 # Let us apply it with a lambda function
 names_upper=map(lambda name:name.upper(),names)
 print(list(names_upper))
+
+
+# Python - Filter Function 
+# filter(function,iterable)
+
+# Example:1
+# Filter only even numbers
+numbers = [1, 2, 3, 4, 5]
+def is_even(num):
+    if num%2==0:
+        return True
+    else:
+        return False
+even_numbers=filter(is_even,numbers)
+print(list(even_numbers))    
+
+
+# Example:2
+numbers = [1, 2, 3, 4, 5]
+def is_odd(num):
+    if num%2 !=0:
+        return True
+    return False
+odd_numbers=filter(is_odd,numbers)
+print(list(odd_numbers))
+
+
+# Filter long name
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+def is_name_long(name):
+    if len(name)>7:
+        return True
+    return False
+long_names=filter(is_name_long,names)
+print(list(long_names))
