@@ -197,3 +197,13 @@ def is_name_long(name):
     return False
 long_names=filter(is_name_long,names)
 print(list(long_names))
+
+
+# Python - Reduce Function
+#  it returns a single value
+from functools import reduce
+numbers_str = ['1', '2', '3', '4', '5']
+def add_two_nums(x,y):
+    return int(x)+int(y)
+total=reduce(add_two_nums,numbers_str)
+print(total)
