@@ -142,3 +142,32 @@ print(nordic_countries)
 
 
 # Enumerate
+# If we are interested in an index of a list,
+#  we use enumerate built-in function to get the index of each item in the list.
+for index,item in enumerate([20,30,40]):
+    print(index,item)
+
+
+countries = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+for index,i in enumerate(countries):
+    if i =='Finland':
+        print(f'The country {i} has been found at index {index}.')
+
+
+#  Zip
+# Sometimes we would like to combine lists when looping through them.
+fruits = ['banana', 'orange', 'mango', 'lemon', 'lime','kiwi']                    
+vegetables = ['Tomato', 'Potato', 'Cabbage','Onion', 'Carrot']
+fruits_and_veges = []
+for f,v in zip(fruits,vegetables):
+    fruits_and_veges.append({'fruit':f,'veg':v})
+print(fruits_and_veges)           
+
+
+
+# Exercises
+names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']
+*nordic_countries,es,ru=names
+print(nordic_countries)
+print(es)
+print(ru)
