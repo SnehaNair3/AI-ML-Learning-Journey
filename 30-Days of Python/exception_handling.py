@@ -104,3 +104,41 @@ def unpacking_person_info(name,country,city,age):
 dct={'name':'Asabeneh', 'country':'Finland', 'city':'Helsinki', 'age':250}
 print(unpacking_person_info(**dct))
 
+
+# Packing
+# Sometimes we never know how many arguments need to be passed to a python function.
+# We can use the packing method to allow our function to take unlimited number or arbitrary number of arguments.
+
+# Packing Lists
+def sum_all(*args):
+    s=0
+    for i in args:
+        s+=i
+    return s
+print(sum_all(1,2,3))    
+print(sum_all(1,2,3,4,5,6,7))  
+
+
+# Packing Dictionaries
+def packing_person_info(**kwargs):
+    print(type(kwargs))
+    for key in kwargs:
+        print(f"{key}= {kwargs[key]}")
+    return kwargs   
+
+print(packing_person_info(name="Asabeneh",
+      country="Finland", city="Helsinki", age=250)) 
+
+
+# Spreading in Python
+lst_one=[1,2,3]
+lst_two=[4,5,6,7]
+lst=[0,*lst_one,*lst_two]
+print(lst)
+country_lst_one = ['Finland', 'Sweden', 'Norway']
+country_lst_two = ['Denmark', 'Iceland']
+nordic_countries =[*country_lst_one,*country_lst_two]
+print(nordic_countries)
+
+
+# Enumerate
