@@ -47,4 +47,29 @@ with open('./files/reading_file_example.txt') as f:
     print(type(lines))
     print(lines)
 
-    
+
+# Opening Files for Writing and Updating
+# "a" - append - will append to the end of the file, if the file does not exist it creates a new file.
+# "w" - write - will overwrite any existing content, if the file does not exist it creates.
+
+with open('./files/reading_file_example.txt','a'):
+    f.write('This text has to be appended at the end')
+
+# The method below creates a new file, if the file does not exist:
+with open('./files/writing_file_example.txt','w') as f:
+    f.write('This text will be written in a newly created file')
+
+
+# Deleting Files
+import os
+os.remove('./files/example.txt')
+
+# If the file does not exist, teh remove method will raise an error, so it is good to use a condition:
+import os
+if os.path.exists('./files/example.txt'):
+    os.remove('./files/example.txt')
+else:
+    print('The file does not exist')
+
+
+# ile Types        
