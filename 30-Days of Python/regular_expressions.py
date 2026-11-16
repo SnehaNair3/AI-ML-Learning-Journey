@@ -124,3 +124,57 @@ matches=re.findall(reg_pattern,txt)
 print(matches)
 
 # Period(.)
+regex_pattern=r'[a].'
+txt = '''Apple and banana are fruits'''
+matches=re.findall(regex_pattern,txt)
+print(matches)
+
+
+reg_pattern=r'[a].+'
+matches=re.findall(reg_pattern,txt)
+print(matches)
+
+
+# Zero or more times(*)
+# The pattern could may not occur or it can occur many times.
+reg_pat=r'[a].*'
+txt = '''Apple and banana are fruits'''
+matches=re.findall(reg_pat,txt)
+print(matches)
+
+# Zero or one time(?)
+txt = '''I am not sure if there is a convention how to write the word e-mail.
+Some people write it as email others may write it as Email or E-mail.'''
+reg_patter=r'[Ee]-?mail'
+matches=re.findall(reg_patter,txt)
+print(matches)
+
+# Quantifier in RegEx
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern=r'\d{4}'
+matches=re.findall(regex_pattern,txt)
+print(matches)
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern=r'\d{1,4}'
+matches=re.findall(regex_pattern,txt)
+print(matches)
+
+
+# Cart ^
+# Starts with
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern=r'^This'
+matches=re.findall(regex_pattern,txt)
+print(matches)
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern=r'^That'
+matches=re.findall(regex_pattern,txt)
+print(matches)
+
+# Negation
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern=r'[^A-Za-z ]+'
+matches=re.findall(regex_pattern,txt)
+print(matches)
