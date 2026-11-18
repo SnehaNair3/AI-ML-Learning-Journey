@@ -8,3 +8,28 @@
 # while the object represents the class.
 
 # Every element in a python program is an  object of  a class.
+
+num=10
+print(type(num))
+
+string='string'
+print(type(string))
+
+boolean=True
+print(type(boolean))
+
+lst=[]
+print(type(lst))
+
+tpl=()
+print(type(tpl))
+
+set1=set()
+print(type(set1))
+
+dct={}
+print(type(dct))
+
+
+# Creating a Class
+# Class name should be CamelCase.
