@@ -74,3 +74,54 @@ print(p.city)
 
 
 # Object Methods
+# Objects can have methods.
+# The methods are functions that belong to an object.
+class Person:
+    def __init__(self,firstname,lastname,age,country,city):
+        self.firstname=firstname
+        self.lastname=lastname
+        self.age=age
+        self.country=country
+        self.city=city
+
+    def person_info(self):
+        return f'{self.firstname} {self.lastname} is {self.age} years old. He lives in {self.city}, {self.country}.'
+
+p=Person('Sneha','Nair',34,'India','Mumbai')
+print(p.person_info())    
+
+
+# Object Default Methods
+class Person:
+    def __init__(self,firstname='Sneha',lastname='Nair',age=20,country='India',city='Mumbai'):
+        self.firtsname=firstname
+        self.lastname=lastname
+        self.age=age
+        self.country=country
+        self.city=city
+
+    def person_info(self):
+        return f'{self.firtsname} {self.lastname} is {self.age} years old and lives in {self.city}, {self.country}.'
+
+p1=Person()
+print(p1.person_info())
+p2=Person('John','Doe',30,'USA','Texas')
+print(p2.person_info())    
+
+
+# Method to Modify Class Default Values
+class Person:
+    def __init__(self,firstname='Alice',lastname='Philip',age=34,country='UK',city='London'):
+        self.firstname=firstname
+        self.lastname=lastname
+        self.age=age
+        self.country=country
+        self.city=city
+        self.skills=[]
+
+        def person_info(self):
+            return f'{self.firstname} {self.lastname} is {self.age} years old and lives in {self.city}, {self.country}.'
+        def add_skill(self,skill):
+            self.skills.append(skill)
+
+            
