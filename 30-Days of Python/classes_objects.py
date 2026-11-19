@@ -33,3 +33,44 @@ print(type(dct))
 
 # Creating a Class
 # Class name should be CamelCase.
+class Person:
+    pass
+print(Person)    
+
+
+# Creating an Object
+# We can create an object by calling the class.
+p=Person()
+print(p)
+
+
+# Class Constructor
+# The init constructor function has self parameter which is a reference to the current instance of the class 
+class Person:
+    def __init__(self,name):
+        self.name=name
+        # self allows to attach parameter to the class
+
+p=Person('Sneha')
+print(p.name)
+print(p)
+
+
+# Let us add more parameters to the constructor function.
+class Person:
+    def __init__(self,firstname,lastname,age,country,city):
+        self.firstname=firstname
+        self.lastname=lastname
+        self.age=age
+        self.country=country
+        self.city=city
+
+p=Person('Sneha','Nair',25,'India','Mumbai')
+print(p.firstname)        
+print(p.lastname)        
+print(p.age)        
+print(p.country)        
+print(p.city)        
+
+
+# Object Methods
