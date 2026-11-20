@@ -171,3 +171,4 @@ names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']
 print(nordic_countries)
 print(es)
 print(ru)
+  
